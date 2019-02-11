@@ -1,4 +1,4 @@
-
+import java.lang.StringBuffer;
 public class StringUtilities {
     /**
      * @param input value to be returned
@@ -51,26 +51,15 @@ public class StringUtilities {
      * @return `value` with char of value `charToRemove` removed
      */
     public String removeCharacter(String value, Character charToRemove) {
-
-        int j = 0;
-        int k = value.length();
         int count = 0;
-        char []l = value.toCharArray();
+        StringBuffer gone = new StringBuffer(value.length());
+        gone.setLength(value.length());
+        for (int i = 0; i <value.length(); i++) {
+            char a = value.charAt(i);
+            if (a !=charToRemove) gone.setCharAt(count++, a);
 
-        for (int i = j = 0; i < k; i++){
-            if (l[i] != charToRemove)
-                l[j++] = l[i];
-            else
-                count++;
-        }
-        while (count > 0)
-        {
-            l[j++] = '\0';
-            count--;
         } 
-
-        return String.valueOf(l);
-
+        return gone.toString();
     }
 
     /**
